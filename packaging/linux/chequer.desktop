@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Chequer
+GenericName=Image Editor
+GenericName[ru]=Редактор изображений
+Exec=chequer %F
+Icon=chequer
+Terminal=false
+Categories=Graphics;RasterGraphics;
+MimeType=image/png;image/jpeg;image/bmp;image/x-tga;image/gif;image/webp;image/tiff;image/openraster;application/x-chequer;
+StartupWMClass=chequer

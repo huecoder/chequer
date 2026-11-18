@@ -1,0 +1,42 @@
+[package]
+name = "chequer-app"
+description = "Chequer Image Studio: window, UI and input."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "chequer_app"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "chequer"
+path = "src/main.rs"
+
+[dependencies]
+chequer-core = { path = "../chequer-core" }
+eframe = { version = "0.37", default-features = false, features = ["wgpu", "wayland", "x11", "default_fonts", "clipboard", "links"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+resvg = { version = "0.49", default-features = false }
+fontdb = { version = "0.23", default-features = false, features = ["std", "fs", "memmap"] }
+ttf-parser = { version = "0.25", default-features = false, features = ["std"] }
+rodio = { version = "0.23", default-features = false, features = ["playback", "symphonia-mp3"] }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+arboard = { version = "3", features = ["wayland-data-control"] }
+rfd = "0.16"
+raw-window-handle = "0.6"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android-activity = { version = "0.6", features = ["native-activity"] }
+eframe = { version = "0.37", default-features = false, features = ["android-native-activity"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-sys = { version = "0.52", features = ["Win32_Foundation", "Win32_UI_Input_Pointer", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+wayland-client = "0.31"
+wayland-backend = { version = "0.3", features = ["client_system"] }
+wayland-protocols = { version = "0.32", features = ["client", "unstable"] }

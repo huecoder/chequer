@@ -1,0 +1,5 @@
+target/
+
+Chequer-*.AppImage
+tools/publish.sh
+__pycache__/

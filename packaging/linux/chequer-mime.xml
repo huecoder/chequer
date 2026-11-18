@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-chequer">
+    <comment>Chequer image</comment>
+    <comment xml:lang="ru">Изображение Chequer</comment>
+    <magic priority="80">
+      <match type="string" offset="0" value="CHQ\0"/>
+    </magic>
+    <glob pattern="*.chq"/>
+    <icon name="chequer"/>
+  </mime-type>
+</mime-info>
